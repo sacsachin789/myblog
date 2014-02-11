@@ -58,7 +58,9 @@
                                                 <h3>{{ post.title }}</h3>
                                                 {% endautoescape %}
                                                 {% if post.is_small %}
-                                                <p>{{ post.body|linebreaks|safe }}
+                                                {% autoescape off %}
+                                                <p>{{ post.body|linebreaks }}
+                                                {% endautoescape %}
                                                 </p>
                                                 {% else %}
                                                 <p>

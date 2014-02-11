@@ -5,14 +5,18 @@
     </head>
     <body>
         <div class="post">
-            <p>{{ post.title|safe }}</p>
-            <p>{{ post.body|linebreaks|safe }}</p>
+            {% autoescape off %}
+            <p>{{ post.title }}</p>
+            <p>{{ post.body|linebreaks }}</p>
+            {% endautoescape %}
         </div>
         <div class="all_posts">
             <p>All Bogs</p> 
+            {% autoescape off %}
             {% for item in posts %}
             <p><a href="{% url 'blog' item.pk %}">{{ item.title|safe }}</a></p>
             {% endfor %}
+            {% endautoescape %}
         </div>
             <div id="disqus_thread"></div>
                 <script type="text/javascript">
