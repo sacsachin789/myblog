@@ -54,13 +54,17 @@
 						<h2>My Musings</h2>
                                                 {% for post in posts %}
                                                 <article>
-                                                <h3>{{ post.title|safe }}</h3>
+                                                {% autoescape off %}
+                                                <h3>{{ post.title }}</h3>
+                                                {% endautoescape %}
                                                 {% if post.is_small %}
                                                 <p>{{ post.body|linebreaks|safe }}
                                                 </p>
                                                 {% else %}
                                                 <p>
-                                                {{ post.body|truncatewords:"50"|linebreaks|safe }}<a href="{% url 'blog' post.pk %}">Read More</a>
+                                                {% autoescape off %}
+                                                {{ post.body|truncatewords:"50"|linebreaks }}<a href="{% url 'blog' post.pk %}">Read More</a>
+                                                {% endautoescape %}
                                                 </p>
                                                 {% endif %}
                                                 </article>
