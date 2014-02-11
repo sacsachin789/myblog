@@ -54,23 +54,17 @@
 						<h2>My Musings</h2>
                                                 {% for post in posts %}
                                                 <article>
-                                                <h3>{{ post.title }}</h3>
+                                                <h3>{{ post.title|safe }}</h3>
                                                 {% if post.is_small %}
-                                                <p>{{ post.body|linebreaks }}
+                                                <p>{{ post.body|linebreaks|safe }}
                                                 </p>
                                                 {% else %}
                                                 <p>
-                                                {{ post.body|truncatewords:"50"|linebreaks }}<a href="{% url 'blog' post.pk %}">Read More</a>
+                                                {{ post.body|truncatewords:"50"|linebreaks|safe }}<a href="{% url 'blog' post.pk %}">Read More</a>
                                                 </p>
                                                 {% endif %}
                                                 </article>
                                                 {% endfor %}
-                                                <div class="example">
-                                                <p>All Blogs</p>
-                                                {% for post in posts %}
-                                                <p><a href="{% url 'blog' post.pk %}">{{ post.title }}</a></p>
-                                                {% endfor %}
-                                                </div>
 					</div>
 					<span class="bl-icon bl-icon-close"></span>
 				</section>

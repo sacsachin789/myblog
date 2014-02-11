@@ -5,13 +5,13 @@
     </head>
     <body>
         <div class="post">
-            <p>{{ post.title }}</p>
-            <p>{{ post.body|linebreaks }}</p>
+            <p>{{ post.title|safe }}</p>
+            <p>{{ post.body|linebreaks|safe }}</p>
         </div>
         <div class="all_posts">
             <p>All Bogs</p> 
             {% for item in posts %}
-            <p><a href="{% url 'blog' item.pk %}">{{ item.title }}</a></p>
+            <p><a href="{% url 'blog' item.pk %}">{{ item.title|safe }}</a></p>
             {% endfor %}
         </div>
             <div id="disqus_thread"></div>
