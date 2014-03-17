@@ -60,9 +60,9 @@
                                                 <p>{{ post.body|linebreaks }}
                                                 </p>
                                                 {% else %}
-                                                <p>
+                                                
                                                 {{ post.body|truncatewords:"50"|linebreaks }}<a href="{% url 'blog' post.pk %}">Read More</a>
-                                                </p>
+                                                
                                                 {% endif %}
                                                 </article>
                                                 {% endfor %}
