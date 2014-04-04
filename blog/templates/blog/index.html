@@ -56,14 +56,17 @@
                                                 {% for post in posts %}
                                                 <article>
                                                 <h3>{{ post.title }}</h3>
+                                                <p>
                                                 {% if post.is_small %}
-                                                <p>{{ post.body|linebreaks }}
-                                                </p>
+                                                {{ post.body }}
+                                               
                                                 {% else %}
                                                 
-                                                {{ post.body|truncatewords:"50"|linebreaks }}<a href="{% url 'blog' post.pk %}">Read More</a>
-                                                
+                                                {{ post.body|truncatewords:"50" }}
+                                                <a href="{% url 'blog' post.pk %}">Read More</a>
+                                               
                                                 {% endif %}
+                                                </p>
                                                 </article>
                                                 {% endfor %}
                                                 {% endautoescape %}
